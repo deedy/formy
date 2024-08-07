@@ -1,70 +1,145 @@
-# Getting Started with Create React App
+# Formy - Dynamic Form Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Formy is a full-stack web application that allows users to generate custom forms based on natural language descriptions. It uses OpenAI's GPT model to interpret user descriptions and create corresponding JSON Forms schemas.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+1. [Features](#features)
+2. [Technology Stack](#technology-stack)
+3. [Prerequisites](#prerequisites)
+4. [Installation](#installation)
+5. [Configuration](#configuration)
+6. [Running the Application](#running-the-application)
+7. [Usage](#usage)
+8. [API Endpoints](#api-endpoints)
+9. [Contributing](#contributing)
+10. [License](#license)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Dynamic form generation based on natural language descriptions
+- Dark mode UI with a sleek, modern design
+- Real-time form preview using JSON Forms
+- RESTful API for form generation
+- Error handling and loading states
+- Responsive design for various screen sizes
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technology Stack
 
-### `npm test`
+### Frontend
+- React
+- Material-UI (MUI)
+- JSON Forms
+- Axios for API calls
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend
+- Flask (Python)
+- OpenAI API
+- Flask-CORS for handling Cross-Origin Resource Sharing
 
-### `npm run build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Before you begin, ensure you have met the following requirements:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v14 or later)
+- Python (v3.7 or later)
+- OpenAI API key
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+### Backend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/formy.git
+   cd formy/backend
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Create a virtual environment:
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Install the required packages:
+   ```
+   pip install -r requirements.txt
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Frontend
 
-## Learn More
+1. Navigate to the frontend directory:
+   ```
+   cd ../frontend
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Install the required npm packages:
+   ```
+   npm install
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Configuration
 
-### Code Splitting
+### Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Set your OpenAI API key as an environment variable:
+   ```
+   export OPENAI_API_KEY='your-api-key-here'
+   ```
 
-### Analyzing the Bundle Size
+2. (Optional) Modify the `app.py` file to change the port or add additional configurations.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Frontend
 
-### Making a Progressive Web App
+1. If your backend is running on a different URL, update the `axiosInstance` baseURL in `src/App.js`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Running the Application
 
-### Advanced Configuration
+### Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. From the `backend` directory, run:
+   ```
+   python app.py
+   ```
+   The server should start running on `http://localhost:8080`.
 
-### Deployment
+### Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. From the `frontend` directory, run:
+   ```
+   npm start
+   ```
+   The application should open in your default browser at `http://localhost:3000`.
 
-### `npm run build` fails to minify
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Open the application in your web browser.
+2. In the text area, describe the form you want to create. For example: "Create a contact form with fields for name, email, and message."
+3. Click the "Generate Form" button.
+4. The application will generate a form based on your description and display it below.
+5. You can interact with the generated form and see the form data update in real-time.
+
+## API Endpoints
+
+- `GET /test`: Test the API connection
+- `POST /generate-form`: Generate a form schema based on a description
+  - Request body: `{ "description": "Your form description here" }`
+  - Response: `{ "form_structure": "JSON Forms schema" }`
+
+## Contributing
+
+Contributions to Formy are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature-branch-name`
+3. Make your changes and commit them: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature-branch-name`
+5. Create a pull request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+---
+
+For any additional questions or support, please open an issue in the GitHub repository.
