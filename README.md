@@ -4,16 +4,20 @@ Formy is a full-stack web application that allows users to generate custom forms
 
 ## Table of Contents
 
-1. [Features](#features)
-2. [Technology Stack](#technology-stack)
-3. [Prerequisites](#prerequisites)
-4. [Installation](#installation)
-5. [Configuration](#configuration)
-6. [Running the Application](#running-the-application)
-7. [Usage](#usage)
-8. [API Endpoints](#api-endpoints)
-9. [Contributing](#contributing)
-10. [License](#license)
+- [Formy - Dynamic Form Generator](#formy---dynamic-form-generator)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Technology Stack](#technology-stack)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Running the Application](#running-the-application)
+  - [Usage](#usage)
+  - [API Endpoints](#api-endpoints)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Features
 
@@ -47,65 +51,48 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installation
 
-### Backend
-
 1. Clone the repository:
    ```
    git clone https://github.com/yourusername/formy.git
-   cd formy/backend
+   cd formy
    ```
-
 2. Create a virtual environment:
    ```
    python -m venv venv
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
 
-3. Install the required packages:
+3. Install backend dependencies:
    ```
    pip install -r requirements.txt
    ```
 
-### Frontend
-
-1. Navigate to the frontend directory:
-   ```
-   cd ../frontend
-   ```
-
-2. Install the required npm packages:
+4. Install frontend dependencies:
    ```
    npm install
    ```
 
 ## Configuration
 
-### Backend
-
-1. Set your OpenAI API key as an environment variable:
+1. Create a `.env` file in the root directory and add your OpenAI API key:
    ```
-   export OPENAI_API_KEY='your-api-key-here'
+   OPENAI_API_KEY=your_api_key_here
    ```
 
-2. (Optional) Modify the `app.py` file to change the port or add additional configurations.
+2. (Optional) If your backend is running on a different URL, update the `axiosInstance` baseURL in `src/App.js`.
 
-### Frontend
+3. (Optional) Modify the `app.py` file to change the port or add additional configurations.
 
-1. If your backend is running on a different URL, update the `axiosInstance` baseURL in `src/App.js`.
 
 ## Running the Application
 
-### Backend
-
-1. From the `backend` directory, run:
+1. Start the backend:
    ```
    python app.py
    ```
    The server should start running on `http://localhost:8080`.
 
-### Frontend
-
-1. From the `frontend` directory, run:
+2. In a new terminal, start the frontend:
    ```
    npm start
    ```
